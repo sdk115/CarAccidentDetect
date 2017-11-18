@@ -1,0 +1,26 @@
+nav.navbar.navbar-inverse
+    .container
+        .navbar-header
+            img(src="/image/icon.png").navbar-brand
+            a.navbar-brand(href='/') 사고 인식 !!
+        ul.nav.navbar-nav
+            li#home(class=(locals.page == 'index') ? "active" : "")
+                a(href='/') 홈
+            li#myinfo(class=(locals.page == 'myinfo') ? "active" : "")
+                a(href='/myinfo') 메뉴1
+            li#timetable(class=(locals.page == 'timetable') ? "active" : "")
+                a(href='/timetable') 메뉴2
+        ul.nav.navbar-nav.navbar-right
+            li
+                if locals.profile
+                    a(href='/logout')
+                        = `Hello, ${locals.profile.name}!`
+                        span.glyphicon.glyphicon-log-out 로그아웃
+                else
+                    a(href='/login')
+                        span.glyphicon.glyphicon-log-in 로그인
+                        
+            li
+              a(href="/document/help.pdf")
+                span.glyphicon.glyphicon-question-sign 도움말
+                  
