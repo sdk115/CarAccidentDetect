@@ -23,13 +23,18 @@ def detect_accident(feature):
     print("dectect_acctident")
     return True
 
-def play_sound(file_name, wating_time):
+def play_sound(file_name):
     print("play", file_name, "!!")
+    player = pyglet.media.Player()
+
     file_path = '../sound/'
 
     sound = pyglet.media.load(file_path+file_name, streaming=False)
-    sound.play()
-    time.sleep(wating_time)
+    player.queue(sound)
+    player.play()
+
+    time.sleep(sound.duration)
+
     # mixer.init()
     # mixer.music.load('../sound'+file_name)
     # mixer.music.play()
@@ -38,8 +43,10 @@ def get_shortest_distance():
     return 101
 
 # if (cancel btn pushed ) return true
-def wait_cancel_btn(time=5):
+def wait_cancel_btn(wating=5):
     print("now wating cancel button")
+
+    time.sleep(wating)
 
     print("cancel btn not pushed")
     return False
@@ -48,7 +55,7 @@ def report_accident():
     print("accident reported")
 
 load_tensor_model()
-play_sound("alert_200m.wav", 7)
+# play_sound("alert_200m.wav", 7)
 
 while True:
     time.sleep(1)
@@ -57,14 +64,14 @@ while True:
     feature = make_feature(sensor_value)
 
     if detect_accident(feature):
-        play_sound("detect_accident.wav", 7)
+        play_sound("detect_accident.wav")
 
         # true : cancel / false : not canceld
         if wait_cancel_btn():
-            play_sound("cancel.wav",5)
+            play_sound("cancel.wav")
             continue
         else:
             report_accident()
-            play_sound("register_accident.wav",5)
+            play_sound("register_accident.wav")
 
     shortest_distance = get_shortest_distance()
