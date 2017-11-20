@@ -71,7 +71,7 @@ def play_sound(file_name):
     # mixer.music.play()
 
 def get_shortest_distance():
-    return 101
+    return 509
 
 # if (cancel btn pushed ) return true
 def wait_cancel_btn(wating=5):
@@ -145,12 +145,12 @@ while True:
         flag500 = False
         flag200 = False
         flag100 = False
-    elif (not flag500) and shortest_distance <500 and shortest_distance >200 :
-        play_sound("alert_500m")
+    elif (not flag500) and shortest_distance <500 and shortest_distance > 200 :
+        play_sound("alert_500m.wav")
         flag500 = True
     elif (not flag200) and shortest_distance < 200 and shortest_distance >100 :
-        play_sound("alert_200m")
+        play_sound("alert_200m.wav")
         flag200 = True
     elif (not flag100) and shortest_distance < 100:
-        play_sound("alert_100m")
+        play_sound("alert_100m.wav")
         flag100 = True
