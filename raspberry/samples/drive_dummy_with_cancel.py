@@ -145,12 +145,12 @@ while True:
         flag500 = False
         flag200 = False
         flag100 = False
-    elif !flag500 and shortest_distance <500 and shortest_distance >200 :
+    elif (not flag500) and shortest_distance <500 and shortest_distance >200 :
         play_sound("alert_500m")
         flag500 = True
-    elif !flag200 and shortest_distance < 200 and shortest_distance >100 :
+    elif (not flag200) and shortest_distance < 200 and shortest_distance >100 :
         play_sound("alert_200m")
         flag200 = True
-    elif !flag100 and shortest_distance < 100:
+    elif (not flag100) and shortest_distance < 100:
         play_sound("alert_100m")
         flag100 = True
